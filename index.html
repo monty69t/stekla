@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Детейлинг студия | Услуги</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0B0B0C;
+      color: #fff;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0B0C;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #4dabf7;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(77, 171, 247, 0.4);
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+    .glass-pill {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 60px;
+      padding: 8px 20px;
+      display: inline-block;
+    }
+    .section-title {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .section-title span {
+      color: #4dabf7;
+    }
+    .section-sub {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    .cyan-underline {
+      width: 80px;
+      height: 3px;
+      background: #4dabf7;
+      border-radius: 4px;
+      margin: 0.5rem 0 1.5rem 0;
+      box-shadow: 0 0 20px rgba(77, 171, 247, 0.4);
+      transform-origin: left;
+      transform: scaleX(0);
+      animation: underline-grow 1s ease forwards 0.4s;
+    }
+    @keyframes underline-grow {
+      to { transform: scaleX(1); }
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1400px;
+      z-index: 1000;
+      padding: 12px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(11, 11, 12, 0.6);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 60px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+      animation: nav-drop 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes nav-drop {
+      from { transform: translateX(-50%) translateY(-40px); opacity: 0; }
+      to { transform: translateX(-50%) translateY(0); opacity: 1; }
+    }
+    .nav-logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo .vinyl-icon {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #4dabf7, #1c7ed6, #b7b7b7);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(77, 171, 247, 0.3);
+      animation: spin-slow 8s linear infinite;
+    }
+    @keyframes spin-slow {
+      from { filter: hue-rotate(0deg); }
+      to { filter: hue-rotate(360deg); }
+    }
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      font-weight: 400;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .nav-menu li {
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
+    }
+    .nav-menu li::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 1px;
+      background: #4dabf7;
+      transition: width 0.3s ease;
+    }
+    .nav-menu li:hover {
+      color: #fff;
+    }
+    .nav-menu li:hover::after {
+      width: 100%;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-cta {
+      background: rgba(77, 171, 247, 0.15);
+      border: 1px solid rgba(77, 171, 247, 0.3);
+      padding: 8px 28px;
+      border-radius: 60px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 20px rgba(77, 171, 247, 0.1);
+      text-decoration: none;
+    }
+    .nav-cta:hover {
+      background: rgba(77, 171, 247, 0.3);
+      box-shadow: 0 0 40px rgba(77, 171, 247, 0.2);
+      transform: translateY(-2px);
+    }
+    .nav-social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-social-btn:hover {
+      transform: translateY(-2px);
+    }
+    .nav-social-btn.tg:hover {
+      border-color: #26A5E4;
+      box-shadow: 0 0 24px rgba(38, 165, 228, 0.25);
+      background: rgba(38, 165, 228, 0.12);
+    }
+    .nav-social-btn.wa:hover {
+      border-color: #25D366;
+      box-shadow: 0 0 24px rgba(37, 211, 102, 0.25);
+      background: rgba(37, 211, 102, 0.12);
+    }
+    .nav-social-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff;
+      transition: fill 0.3s;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 120px 5% 80px;
+      background: radial-gradient(circle at 20% 30%, #0b1a2e 0%, #0B0B0C 80%);
+      overflow: hidden;
+    }
+    .hero-bg-art {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.3;
+      background: radial-gradient(circle at 70% 20%, rgba(77, 171, 247, 0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 30% 80%, rgba(50, 130, 255, 0.05) 0%, transparent 50%);
+    }
+    .hero-bg-art::before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      right: 5%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(77, 171, 247, 0.1), rgba(255, 255, 255, 0.02));
+      filter: blur(80px);
+      animation: float-blob 10s ease-in-out infinite;
+    }
+    .hero-bg-art::after {
+      content: '';
+      position: absolute;
+      bottom: 10%;
+      left: 5%;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 70% 70%, rgba(100, 180, 255, 0.08), transparent);
+      filter: blur(100px);
+      animation: float-blob 12s ease-in-out infinite reverse;
+    }
+    @keyframes float-blob {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-30px, 20px) scale(1.08); }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      width: 100%;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(3.4rem, 10vw, 7.5rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background: linear-gradient(180deg, #ffffff 30%, rgba(255, 255, 255, 0.5));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 60px rgba(77, 171, 247, 0.15);
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    .hero-sub {
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.04em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-sub strong {
+      color: #4dabf7;
+      font-weight: 600;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #4dabf7, #1c7ed6);
+      border: none;
+      padding: 14px 40px;
+      border-radius: 60px;
+      color: #0B0B0C;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 40px rgba(77, 171, 247, 0.2);
+      animation: pulse-glow 3s ease-in-out infinite;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 0 60px rgba(77, 171, 247, 0.4);
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 40px rgba(77, 171, 247, 0.2); }
+      50% { box-shadow: 0 0 55px rgba(77, 171, 247, 0.35); }
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 14px 40px;
+      border-radius: 60px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #4dabf7;
+      transform: translateY(-2px);
+    }
+    .hero-badges {
+      position: absolute;
+      bottom: 40px;
+      left: 5%;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      z-index: 2;
+    }
+    .hero-badge {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 60px;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      color: #4dabf7;
+      font-weight: 500;
+    }
+    .hero-location {
+      position: absolute;
+      bottom: 40px;
+      right: 5%;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 60px;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* SERVICES CARDS (краткие) */
+    .services {
+      padding: 80px 5%;
+      background: linear-gradient(180deg, #0B0B0C 0%, #0b1a2e 100%);
+      position: relative;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .service-card {
+      padding: 32px 24px;
+      text-align: left;
+      transition: 0.4s ease;
+      cursor: default;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(77, 171, 247, 0.3);
+      box-shadow: 0 12px 48px rgba(77, 171, 247, 0.08);
+    }
+    .service-card .service-icon {
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.2);
+      margin-bottom: 12px;
+      display: inline-block;
+      transition: transform 0.4s ease;
+      letter-spacing: 0.04em;
+    }
+    .service-card:hover .service-icon {
+      transform: scale(1.05) translateX(2px);
+      color: rgba(255, 255, 255, 0.4);
+    }
+    .service-card h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.6;
+    }
+    .service-card .price-tag {
+      display: inline-block;
+      margin-top: 12px;
+      background: rgba(77, 171, 247, 0.12);
+      border-radius: 60px;
+      padding: 4px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #4dabf7;
+      border: 1px solid rgba(77, 171, 247, 0.1);
+    }
+
+    /* DETAILED SERVICES */
+    .detailed-services {
+      padding: 80px 5%;
+      background: #0B0B0C;
+      position: relative;
+    }
+    .detailed-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .detailed-item {
+      display: flex;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 28px;
+      overflow: hidden;
+      transition: 0.4s ease;
+    }
+    .detailed-item:hover {
+      border-color: rgba(77, 171, 247, 0.25);
+      box-shadow: 0 12px 40px rgba(77, 171, 247, 0.06);
+      transform: translateY(-4px);
+    }
+    .detailed-item .img-wrap {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #0b1a2e;
+    }
+    .detailed-item .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .detailed-item:hover .img-wrap img {
+      transform: scale(1.03);
+    }
+    .detailed-item .content {
+      padding: 24px 28px 28px;
+    }
+    .detailed-item .content h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+      color: #fff;
+    }
+    .detailed-item .content h3 span {
+      color: #4dabf7;
+    }
+    .detailed-item .content .sub {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #4dabf7;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+      display: inline-block;
+      background: rgba(77, 171, 247, 0.08);
+      padding: 2px 14px;
+      border-radius: 60px;
+    }
+    .detailed-item .content p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .detailed-item .content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 12px 0;
+    }
+    .detailed-item .content ul li {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+      padding: 4px 0;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .detailed-item .content ul li::before {
+      content: "—";
+      color: #4dabf7;
+      font-weight: 600;
+    }
+    .detailed-item .content .price-tag {
+      background: rgba(77, 171, 247, 0.12);
+      border-radius: 60px;
+      padding: 6px 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #4dabf7;
+      border: 1px solid rgba(77, 171, 247, 0.1);
+      display: inline-block;
+      margin-top: 6px;
+    }
+
+    /* EDUCATION */
+    .education {
+      padding: 80px 5%;
+      background: linear-gradient(180deg, #0B0B0C 0%, #0b1a2e 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .education::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(77, 171, 247, 0.08), transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .edu-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 28px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .edu-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #4dabf7, transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .edu-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(77, 171, 247, 0.3);
+      box-shadow: 0 16px 48px rgba(77, 171, 247, 0.08);
+    }
+    .edu-card:hover::after {
+      opacity: 1;
+    }
+    .edu-card .edu-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: rgba(77, 171, 247, 0.12);
+      border: 1px solid rgba(77, 171, 247, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      color: #4dabf7;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .edu-card:hover .edu-icon {
+      transform: scale(1.06) rotate(-4deg);
+      box-shadow: 0 0 30px rgba(77, 171, 247, 0.25);
+    }
+    .edu-card h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    .edu-card h3 span {
+      color: #4dabf7;
+    }
+    .edu-card .edu-sub {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #4dabf7;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+    .edu-card p {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .edu-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+    }
+    .edu-card ul li {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.6);
+      padding: 5px 0;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      line-height: 1.5;
+    }
+    .edu-card ul li::before {
+      content: "—";
+      color: #4dabf7;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .edu-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .edu-tag {
+      background: rgba(77, 171, 247, 0.1);
+      border: 1px solid rgba(77, 171, 247, 0.12);
+      border-radius: 60px;
+      padding: 4px 14px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #4dabf7;
+    }
+    .edu-cta {
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #4dabf7;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: gap 0.3s ease;
+    }
+    .edu-cta:hover {
+      gap: 14px;
+      text-shadow: 0 0 20px rgba(77, 171, 247, 0.4);
+    }
+    .edu-note {
+      max-width: 1400px;
+      margin: 32px auto 0;
+      text-align: center;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.4);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* PORTFOLIO */
+    .portfolio {
+      padding: 80px 5%;
+      background: #0B0B0C;
+      position: relative;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .portfolio-item {
+      aspect-ratio: 9 / 16;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.4s ease;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-4px) scale(1.015);
+      border-color: rgba(77, 171, 247, 0.2);
+      box-shadow: 0 12px 48px rgba(77, 171, 247, 0.06);
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 20px;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+      cursor: default;
+      object-fit: contain;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .lightbox .close-btn {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 3rem;
+      color: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      transition: 0.3s;
+      background: none;
+      border: none;
+      font-weight: 300;
+      z-index: 10000;
+    }
+    .lightbox .close-btn:hover {
+      color: #fff;
+      transform: rotate(90deg);
+    }
+
+    /* PRICE TABLE */
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 1200px;
+      margin: 2rem auto 0;
+    }
+    .price-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+    }
+    .price-card:hover {
+      border-color: rgba(77, 171, 247, 0.3);
+      background: rgba(77, 171, 247, 0.04);
+    }
+    .price-card .name {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .price-card .cost {
+      font-weight: 700;
+      color: #4dabf7;
+      font-size: 1rem;
+    }
+
+    /* ADVANTAGES */
+    .advantages {
+      padding: 80px 5%;
+      background: #0B0B0C;
+      position: relative;
+      overflow: hidden;
+    }
+    .advantages .wave-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(77, 171, 247, 0.02) 40px, rgba(77, 171, 247, 0.02) 80px);
+    }
+    .advantages-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .advantage-left {
+      flex: 0 0 auto;
+      min-width: 200px;
+    }
+    .advantage-left .big-number {
+      font-size: 3.8rem;
+      font-weight: 900;
+      color: #4dabf7;
+      line-height: 1;
+      text-shadow: 0 0 60px rgba(77, 171, 247, 0.2);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .advantage-left .big-number span {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .advantage-left .desc {
+      margin-top: 8px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: -0.01em;
+    }
+    .advantage-left .desc small {
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+      margin-left: 4px;
+    }
+    .advantage-right {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .advantage-chip {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 60px;
+      padding: 8px 20px;
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.85);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.3s;
+    }
+    .advantage-chip .check {
+      color: #4dabf7;
+      font-weight: 700;
+    }
+    .advantage-chip:hover {
+      border-color: rgba(77, 171, 247, 0.3);
+      background: rgba(77, 171, 247, 0.05);
+      transform: translateY(-2px);
+    }
+
+    /* APPROACH */
+    .approach {
+      padding: 80px 5%;
+      background: linear-gradient(180deg, #0b1a2e, #0B0B0C);
+    }
+    .approach-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 48px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 32px;
+    }
+    .approach-row {
+      display: flex;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .approach-row:last-child {
+      border-bottom: none;
+    }
+    .approach-row .num {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #4dabf7;
+      min-width: 40px;
+    }
+    .approach-row .txt h5 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .approach-row .txt p {
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.55);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    .price-note {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.4);
+      font-style: italic;
+      font-size: 0.9rem;
+      margin: 28px 0 0 0;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 60px 5% 30px;
+      background: linear-gradient(180deg, #0b1a2e, #05070e);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      position: relative;
+    }
+    footer .wave-top {
+      position: absolute;
+      top: -2px;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(90deg, transparent, rgba(77, 171, 247, 0.03), transparent);
+      filter: blur(4px);
+    }
+    .footer-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1.5fr 1fr;
+      gap: 40px;
+      position: relative;
+      z-index: 2;
+    }
+    .footer-col h4 {
+      color: #4dabf7;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+    .footer-col .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .footer-col .tagline {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+    .footer-col .hours {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.85rem;
+    }
+    .footer-social-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .footer-social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+    .footer-social-btn:hover {
+      transform: translateY(-2px);
+    }
+    .footer-social-btn.tg:hover {
+      border-color: #26A5E4;
+      background: rgba(38, 165, 228, 0.15);
+      box-shadow: 0 0 24px rgba(38, 165, 228, 0.15);
+    }
+    .footer-social-btn.wa:hover {
+      border-color: #25D366;
+      background: rgba(37, 211, 102, 0.15);
+      box-shadow: 0 0 24px rgba(37, 211, 102, 0.15);
+    }
+    .footer-social-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+      transition: fill 0.3s;
+      flex-shrink: 0;
+    }
+    .footer-address {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+    .footer-address .emoji {
+      margin-right: 6px;
+    }
+    .footer-phone {
+      color: #4dabf7;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin: 8px 0 14px 0;
+      display: inline-block;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+    .footer-phone:hover {
+      text-shadow: 0 0 20px rgba(77, 171, 247, 0.5);
+    }
+    .footer-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .footer-buttons button {
+      padding: 8px 20px;
+      border-radius: 60px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .footer-buttons .btn-blue {
+      background: rgba(77, 171, 247, 0.15);
+      border-color: rgba(77, 171, 247, 0.2);
+    }
+    .footer-buttons button:hover {
+      border-color: #4dabf7;
+      transform: translateY(-2px);
+    }
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+    }
+    .scroll-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .scroll-top:hover {
+      border-color: #4dabf7;
+      box-shadow: 0 0 40px rgba(77, 171, 247, 0.1);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .detailed-grid { grid-template-columns: 1fr; }
+      .education-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .price-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 12px;
+        border-radius: 28px;
+        padding: 12px 20px;
+        top: 12px;
+        width: 95%;
+      }
+      .nav-menu { display: none; }
+      .nav-actions { gap: 6px; }
+      .nav-social-btn { width: 34px; height: 34px; }
+      .nav-social-btn svg { width: 18px; height: 18px; }
+      .nav-cta { padding: 6px 16px; font-size: 0.8rem; }
+      .hero h1 { font-size: 3.2rem; }
+      .hero-sub { font-size: 1rem; }
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .detailed-grid { grid-template-columns: 1fr; gap: 24px; }
+      .education-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+      .advantages-container { flex-direction: column; align-items: flex-start; }
+      .advantage-left .big-number { font-size: 3.2rem; }
+      .advantage-left .desc { font-size: 1.1rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+      .hero-badges, .hero-location { display: none; }
+      .approach-container { padding: 24px; }
+      .section-title { font-size: 2.2rem; }
+      .price-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+      .advantage-right { flex-direction: column; width: 100%; }
+      .advantage-chip { width: 100%; }
+      .portfolio-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <span class="vinyl-icon"></span>
+      ДЕТЕЙЛИНГ
+    </div>
+    <ul class="nav-menu">
+      <li onclick="document.getElementById('services').scrollIntoView()">Услуги</li>
+      <li onclick="document.getElementById('detailed-services').scrollIntoView()">Подробнее</li>
+      <li onclick="document.getElementById('education').scrollIntoView()">Обучение</li>
+      <li onclick="document.getElementById('advantages').scrollIntoView()">Почему мы</li>
+      <li onclick="document.getElementById('contacts').scrollIntoView()">Контакты</li>
+    </ul>
+    <div class="nav-actions">
+      <a href="https://t.me/provinyl_samara" target="_blank" class="nav-social-btn tg" title="Написать в Telegram">
+        <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      </a>
+      <a href="https://t.me/provinyl_samara" target="_blank" class="nav-cta">Записаться</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-art"></div>
+    <div class="hero-content">
+      <h1>ДЕТЕЙЛИНГ</h1>
+      <p class="hero-sub">
+        Студия защиты и восстановления автомобилей в Самаре.<br />
+        <strong>Бронирование, полировка, антидождь, керамика</strong> — сохраняем авто как новый.
+      </p>
+      <div class="hero-buttons">
+        <a href="https://t.me/provinyl_samara" target="_blank" class="btn-primary">Записаться на осмотр</a>
+        <button class="btn-secondary" onclick="document.getElementById('detailed-services').scrollIntoView()">Подробнее об услугах</button>
+      </div>
+    </div>
+    <div class="hero-badges">
+      <span class="hero-badge">✓ Бронеплёнка на лобовое</span>
+
+      <span class="hero-badge">✓ Керамика &amp; Антидождь</span>
+    </div>
+    <div class="hero-location">📍 Самара, Ново-Садовая 329А</div>
+  </section>
+
+  <!-- SERVICES (краткие карточки) -->
+  <section class="services" id="services">
+    <div style="max-width:1400px;margin:0 auto;">
+      <div class="section-title">Наши <span>услуги</span></div>
+      <div class="cyan-underline"></div>
+      <div class="section-sub">Защита, восстановление и уход за вашим автомобилем</div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">✦</div>
+        <h4>Бронеплёнка на лобовое стекло</h4>
+        <p>Защита от камней, реагентов и УФ. Сохраняем оригинал. Толщина 200-250 мкм.</p>
+        <span class="price-tag">от 5 000 ₽</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">✦</div>
+        <h4>Шлифовка и полировка стёкол</h4>
+        <p>Удаляем царапины, возвращаем прозрачность. Безопасный обзор.</p>
+        <span class="price-tag">от 3 000 ₽</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✦</div>
+        <h4>Ремонт сколов и трещин</h4>
+        <p>Восстанавливаем заводскую прочность. Экономия до 90% замены.</p>
+        <span class="price-tag">от 2 500 ₽</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✦</div>
+        <h4>Полировка кузова</h4>
+        <p>Убираем голограммы, царапины. Возвращаем блеск нового авто.</p>
+        <span class="price-tag">от 6 000 ₽</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✦</div>
+        <h4>Антидождь (гидрофоб)</h4>
+        <p>Нано-керамика для стёкол. Вода улетает на скорости 60 км/ч.</p>
+        <span class="price-tag">от 2 500 ₽</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✦</div>
+        <h4>Керамическое покрытие кузова</h4>
+        <p>Защита 9Н, эффект мокрого цвета. Сохраняет ликвидность авто.</p>
+        <span class="price-tag">от 15 000 ₽</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✦</div>
+        <h4>Полировка стёкол</h4>
+        <p>Убираем полосы от дворников, матовость. Подготовка под антидождь.</p>
+        <span class="price-tag">от 2 000 ₽</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILED SERVICES -->
+  <section class="detailed-services" id="detailed-services">
+    <div style="max-width:1400px;margin:0 auto;">
+      <div class="section-title">Подробнее об <span>услугах</span></div>
+      <div class="cyan-underline"></div>
+    </div>
+    <div class="detailed-grid">
+      <!-- 1. Бронеплёнка -->
+      <div class="detailed-item">
+        <div class="img-wrap"><img src="bron.jpg" alt="Бронеплёнка на лобовое стекло" loading="lazy" /></div>
+        <div class="content">
+          <span class="sub">Защита от механики и реагентов</span>
+          <h3>БРОНЕПЛЁНКА НА ЛОБОВОЕ <span>СТЕКЛО</span></h3>
+          <p>Плёнка принимает удар камня на себя. В 90% случаев стекло остаётся целым, на плёнке остаётся лишь микроточка, которая со временем затягивается. Оклейка стоит в 5–10 раз дешевле замены стекла с калибровкой.</p>
+          <ul>
+            <li>Сохранение оригинального стекла (правильная геометрия и оптика)</li>
+            <li>Защита от реагентов и УФ-излучения (до 99%)</li>
+            <li>Лёгкая шумоизоляция и гашение вибраций</li>
+          </ul>
+          <p><strong>Используемые плёнки:</strong> LLumar (США), SunTek (США), Ultra Film / Hexis (Европа). Толщина 200–250 мкм — «броня».</p>
+          <span class="price-tag">от 5 000 ₽</span>
+        </div>
+      </div>
+      <!-- 2. Металлокомпозит -->
+      
+      <!-- 3. Шлифовка стёкол -->
+      <div class="detailed-item">
+        <div class="img-wrap"><img src="shlif.jpg" alt="Шлифовка стёкол" loading="lazy" /></div>
+        <div class="content">
+          <span class="sub">Восстановление прозрачности</span>
+          <h3>ШЛИФОВКА СТЁКОЛ <span>АВТОМОБИЛЯ</span></h3>
+          <p>Если царапина чувствуется ногтем — простая паста не поможет. Я снимаю микро-слой стекла алмазными дисками, чтобы сравнять кромки царапины с общей поверхностью, после чего возвращаю зеркальный блеск и прозрачность.</p>
+          <ul>
+            <li>Безопасность: идеальный обзор в любое время суток, стекло не бликует</li>
+            <li>Эстетика: автомобиль выглядит как новый, дороже и ухоженнее</li>
+            <li>Экономия: полная замена стекла в 5–10 раз дороже</li>
+          </ul>
+          <span class="price-tag">от 3 000 ₽</span>
+        </div>
+      </div>
+      <!-- 4. Ремонт сколов и трещин -->
+      <div class="detailed-item">
+        <div class="img-wrap"><img src="skol.jpg" alt="Ремонт сколов и трещин" loading="lazy" /></div>
+        <div class="content">
+          <span class="sub">Без замены стекла</span>
+          <h3>РЕМОНТ СКОЛОВ И ТРЕЩИН <span>АВТОСТЕКЛА</span></h3>
+          <p>Специализация — ремонт сколов и трещин на лобовых стёклах премиальных автомобилей без потери оптических свойств и прочности. Возвращаю стеклу первозданный вид и заводскую прочность.</p>
+          <ul>
+            <li>Камень из-под колёс оставил «звездочку»? — убираем</li>
+            <li>Трещина по стеклу — останавливаем и восстанавливаем</li>
+            <li>Сохраняем оригинальное стекло, экономия до 90% замены</li>
+          </ul>
+          <span class="price-tag">от 2 500 ₽</span>
+        </div>
+      </div>
+      <!-- 5. Полировка кузова -->
+      <div class="detailed-item">
+        <div class="img-wrap"><img src="poli.jpg" alt="Полировка кузова" loading="lazy" /></div>
+        <div class="content">
+          <span class="sub">Возвращаем блеск нового авто</span>
+          <h3>ПРОФЕССИОНАЛЬНАЯ ПОЛИРОВКА <span>КУЗОВА</span></h3>
+          <p>Убираем голограммы от плохой мойки, следы от веток, когтей животных, царапины. Снимаем слой лака толщиной всего в несколько микрон, сохраняя заводской слой краски.</p>
+          <ul>
+            <li>Кузов становится гладким, как стекло — грязь прилипает в 3 раза меньше</li>
+            <li>Машина блестит, требует меньше моек и дольше выглядит новой</li>
+            <li>Поднимает цену при продаже на 30–50 тысяч рублей</li>
+          </ul>
+          <span class="price-tag">от 6 000 ₽</span>
+        </div>
+      </div>
+      <!-- 6. Антидождь -->
+      <div class="detailed-item">
+        <div class="img-wrap"><img src="anti.jpg" alt="Антидождь" loading="lazy" /></div>
+        <div class="content">
+          <span class="sub">Гидрофобное покрытие</span>
+          <h3>АНТИДОЖДЬ <span>НА АВТОМОБИЛЬ</span></h3>
+          <p>Нано-состав создаёт невидимую плёнку, которая меняет физику взаимодействия воды с поверхностью. Вода собирается в крупные капли и улетает с лобового стекла уже на скорости 50–60 км/ч.</p>
+          <ul>
+            <li>Безопасность в ливень — идеальный обзор без дворников</li>
+            <li>Экономия дворников: резинки служат в 2 раза дольше</li>
+            <li>Защита от реагентов и соли, лёгкость очистки от грязи</li>
+          </ul>
+          <p><strong>Используемые составы:</strong> Koch Chemie, Soft99, Gyeon, нано-керамика для стёкол.</p>
+          <span class="price-tag">от 2 500 ₽</span>
+        </div>
+      </div>
+      <!-- 7. Керамика -->
+      <div class="detailed-item">
+        <div class="img-wrap"><img src="keram.jpg" alt="Керамическое покрытие" loading="lazy" /></div>
+        <div class="content">
+          <span class="sub">Защита на годы</span>
+          <h3>КЕРАМИЧЕСКОЕ ПОКРЫТИЕ <span>АВТОМОБИЛЯ</span></h3>
+          <p>Керамический слой принимает на себя ультрафиолет, кислотные дожди, птичий помёт, битум и дорожные реагенты. Краска под ним не выцветает и не разрушается. Твёрдость покрытия 9Н.</p>
+          <ul>
+            <li>Эффект «мокрого» цвета — глубина лака раскрывается максимально</li>
+            <li>Защита от мелких царапин, мыльных щёток и когтей</li>
+            <li>Грязь прилипает в 5 раз хуже — моек нужно в 2 раза меньше</li>
+            <li>Автомобиль продаётся быстрее и дороже</li>
+          </ul>
+          <p><strong>Бренды:</strong> Ceramic Pro, Gyeon, Koch Chemie, Wilson.</p>
+          <span class="price-tag">от 15 000 ₽</span>
+        </div>
+      </div>
+      <!-- 8. Полировка стёкол -->
+      <div class="detailed-item">
+        <div class="img-wrap"><img src="poli2.jpg" alt="Полировка стёкол" loading="lazy" /></div>
+        <div class="content">
+          <span class="sub">Прозрачность без дефектов</span>
+          <h3>ПОЛИРОВКА СТЁКОЛ <span>АВТОМОБИЛЯ</span></h3>
+          <p>Со временем стекло теряет прозрачность из-за микро-царапин от дворников, затиров, матовости, маслянистых разводов. Профессионально восстанавливаю прозрачность, убирая до 95% дефектов.</p>
+          <ul>
+            <li>Убираем полосы и радужные разводы от дворников</li>
+            <li>Возвращаем заводскую прозрачность «замыленных» стёкол</li>
+            <li>Подготовка под антидождь — покрытие держится в разы дольше</li>
+          </ul>
+          <span class="price-tag">от 2 000 ₽</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="education" id="education">
+    <div style="max-width:1400px;margin:0 auto;">
+      <div class="section-title">Обучение <span>детейлингу</span></div>
+      <div class="cyan-underline"></div>
+      <div class="section-sub">Практические курсы для новичков и мастеров — от шлифовки стекла до полного детейлинга</div>
+    </div>
+
+    <div class="education-grid">
+      <!-- 1. Шлифовка и полировка стёкол -->
+      <div class="edu-card">
+        <div class="edu-icon">◈</div>
+        <h3>Обучение шлифовке и полировке <span>стёкол</span></h3>
+        <span class="edu-sub">Практика на реальных стёклах</span>
+        <p>Учим снимать царапины, затиры от дворников и матовость без линз и искажений. Разбираем абразивы, полировальные пасты, скорость и давление. Каждый ученик работает на своём стекле под контролем мастера.</p>
+        <ul>
+          <li>Диагностика дефектов: царапины, затиры, «пескоструй»</li>
+          <li>Алмазные диски, фетры, пасты — что и когда применять</li>
+          <li>Техника безопасности и контроль температуры стекла</li>
+          <li>Финишная полировка и подготовка под антидождь</li>
+        </ul>
+        <div class="edu-meta">
+          <span class="edu-tag">2 дня</span>
+          <span class="edu-tag">Практика 80%</span>
+          <span class="edu-tag">Сертификат</span>
+        </div>
+        <a href="https://t.me/provinyl_samara" target="_blank" class="edu-cta">Записаться на курс →</a>
+      </div>
+
+      <!-- 2. Ремонт сколов и трещин -->
+      <div class="edu-card">
+        <div class="edu-icon">◇</div>
+        <h3>Обучение ремонту сколов и <span>трещин</span></h3>
+        <span class="edu-sub">Без замены стекла</span>
+        <p>Показываем, как останавливать трещины, убирать «звёздочки» и «бычий глаз», сохраняя оптику и прочность стекла. Работаем с вакуумными инжекторами, полимерами и УФ-сушкой. Отработка на реальных сколах.</p>
+        <ul>
+          <li>Классификация повреждений и прогноз ремонта</li>
+          <li>Вакуумная инжекция полимера — пошагово</li>
+          <li>Остановка трещин, сверление и армирование</li>
+          <li>Финиш: шлифовка, полировка, проверка на оптику</li>
+        </ul>
+        <div class="edu-meta">
+          <span class="edu-tag">2 дня</span>
+          <span class="edu-tag">Практика 80%</span>
+          <span class="edu-tag">Сертификат</span>
+        </div>
+        <a href="https://t.me/provinyl_samara" target="_blank" class="edu-cta">Записаться на курс →</a>
+      </div>
+
+      <!-- 3. Детейлинг -->
+      <div class="edu-card">
+        <div class="edu-icon">◆</div>
+        <h3>Обучение <span>детейлингу</span></h3>
+        <span class="edu-sub">Полный курс с нуля</span>
+        <p>Комплексная программа: мойка, очистка, полировка кузова, керамика, антидождь, бронеплёнка и металлокомпозит. Учим не только технике, но и работе с клиентом, расчёту стоимости и организации студии.</p>
+        <ul>
+          <li>Мойка, глина, обезжиривание, подготовка поверхности</li>
+          <li>Полировка кузова: абразивная и финишная</li>
+          <li>Керамика, антидождь, жидкое стекло — нанесение и сушка</li>
+          <li>Бронеплёнка и металлокомпозит — база</li>
+          <li>Работа с клиентом, ценообразование, продвижение</li>
+        </ul>
+        <div class="edu-meta">
+          <span class="edu-tag">5 дней</span>
+          <span class="edu-tag">Практика 70%</span>
+          <span class="edu-tag">Сертификат</span>
+        </div>
+        <a href="https://t.me/provinyl_samara" target="_blank" class="edu-cta">Записаться на курс →</a>
+      </div>
+    </div>
+
+    <div class="edu-note">
+      * Группы до 4 человек. Возможны индивидуальные занятия и выезд на вашу базу. Все материалы предоставляются.
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="portfolio" id="portfolio">
+    <div style="max-width:1400px;margin:0 auto;">
+      <div class="section-title">Наши <span>работы</span></div>
+      <div class="cyan-underline"></div>
+      <div class="section-sub">Примеры защиты и восстановления автомобилей</div>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" onclick="openLightbox(this)"><img src="1.jpg" alt="Бронеплёнка" loading="lazy" /></div>
+      <div class="portfolio-item" onclick="openLightbox(this)"><img src="2.jpg" alt="Металлокомпозит" loading="lazy" /></div>
+      <div class="portfolio-item" onclick="openLightbox(this)"><img src="3.jpg" alt="Шлифовка" loading="lazy" /></div>
+      <div class="portfolio-item" onclick="openLightbox(this)"><img src="4.jpg" alt="Ремонт сколов" loading="lazy" /></div>
+      <div class="portfolio-item" onclick="openLightbox(this)"><img src="5.jpg" alt="Полировка кузова" loading="lazy" /></div>
+      <div class="portfolio-item" onclick="openLightbox(this)"><img src="6.jpg" alt="Антидождь" loading="lazy" /></div>
+      <div class="portfolio-item" onclick="openLightbox(this)"><img src="7.jpg" alt="Керамика" loading="lazy" /></div>
+      <div class="portfolio-item" onclick="openLightbox(this)"><img src="8.jpg" alt="Полировка стёкол" loading="lazy" /></div>
+      <div class="portfolio-item" onclick="openLightbox(this)"><img src="9.jpg" alt="Детейлинг" loading="lazy" /></div>
+    </div>
+  </section>
+
+  <!-- ADVANTAGES -->
+  <section class="advantages" id="advantages">
+    <div class="wave-bg"></div>
+    <div style="max-width:1400px;margin:0 auto;position:relative;z-index:2;">
+      <div class="section-title">Почему <span>мы?</span></div>
+      <div class="cyan-underline"></div>
+    </div>
+    <div class="advantages-container">
+      <div class="advantage-left">
+        <div class="big-number">
+          <span class="counter" data-target="8">0</span>
+          <span>+</span>
+        </div>
+        <div class="desc">лет опыта <small>в детейлинге</small></div>
+      </div>
+      <div class="advantage-right">
+        <div class="advantage-chip"><span class="check">✓</span> Бронеплёнка премиум-класса (LLumar, SunTek)</div>
+
+        <div class="advantage-chip"><span class="check">✓</span> Шлифовка стёкол без линз и искажений</div>
+        <div class="advantage-chip"><span class="check">✓</span> Ремонт сколов с сохранением оптики</div>
+        <div class="advantage-chip"><span class="check">✓</span> Керамика 9Н и профессиональный антидождь</div>
+        <div class="advantage-chip"><span class="check">✓</span> Работаем с 08:00 до 18:00, два адреса в Самаре и Отрадном</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="approach" id="approach">
+    <div style="max-width:1400px;margin:0 auto;">
+      <div class="section-title">Как мы <span>работаем</span></div>
+      <div class="cyan-underline"></div>
+    </div>
+    <div class="approach-container">
+      <div class="approach-row"><div class="num">01</div><div class="txt"><h5>Осмотр и консультация</h5><p>Оцениваем состояние авто, подбираем оптимальный вариант защиты или восстановления.</p></div></div>
+      <div class="approach-row"><div class="num">02</div><div class="txt"><h5>Подбор материалов</h5><p>Бронеплёнка, металлокомпозит, керамика — используем только проверенные бренды.</p></div></div>
+      <div class="approach-row"><div class="num">03</div><div class="txt"><h5>Профессиональная работа</h5><p>Аккуратно, без пыли и пузырей. Соблюдаем все технологические этапы.</p></div></div>
+      <div class="approach-row"><div class="num">04</div><div class="txt"><h5>Контроль и гарантия</h5><p>Проверяем каждый участок. Даём гарантию на материалы и работу.</p></div></div>
+      <div class="price-note">* Стоимость рассчитывается индивидуально после осмотра автомобиля</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contacts">
+    <div class="wave-top"></div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo">ДЕТЕЙЛИНГ</div>
+        <div class="tagline">Студия защиты и восстановления авто</div>
+        <div class="hours">Ежедневно с 08:00 до 18:00</div>
+        <div class="footer-social-row">
+          <a href="https://t.me/provinyl_samara" target="_blank" class="footer-social-btn tg">
+            <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            Telegram
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Адреса и контакты</h4>
+        <div class="footer-address"><span class="emoji">📍</span> г. Самара, ул. Ново-Садовая 329А</div>
+        <div class="footer-address"><span class="emoji">📍</span> г. Отрадный, ул. Маяковского 32Б</div>
+        <a class="footer-phone" href="tel:+79879519923">+7 987 951-99-23</a>
+        <div class="footer-buttons">
+          <button onclick="window.location.href='tel:+79879519923'">Позвонить</button>
+          <button class="btn-blue" onclick="window.location.href='https://t.me/provinyl_samara'">Записаться</button>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Свяжитесь с нами</h4>
+        <div style="color:rgba(255,255,255,0.5);font-size:0.9rem;margin-bottom:12px;">
+          Подберём вариант под ваш бюджет. Работаем ежедневно с 08:00 до 18:00.
+        </div>
+        <a href="https://t.me/provinyl_samara" target="_blank" class="glass-pill" style="font-size:0.85rem;color:#4dabf7;border-color:rgba(77,171,247,0.1);cursor:pointer;text-decoration:none;">
+          Записаться на бесплатный осмотр
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Детейлинг студия © 2026 — Защита и восстановление автомобилей. Все права защищены.
+    </div>
+  </footer>
+
+  <!-- SCROLL TOP -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="close-btn" onclick="closeLightbox(event)">✕</button>
+    <img id="lightboxImg" src="" alt="Увеличенное фото" />
+  </div>
+
+  <script>
+    function openLightbox(element) {
+      const img = element.querySelector('img');
+      if (!img) return;
+      const src = img.getAttribute('src');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      lightboxImg.src = src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(event) {
+      const lightbox = document.getElementById('lightbox');
+      if (event.target === lightbox || event.target.classList.contains('close-btn') || event.target.closest('.close-btn')) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const lightbox = document.getElementById('lightbox');
+        if (lightbox.classList.contains('active')) {
+          lightbox.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      }
+    });
+
+    const counterEl = document.querySelector('.counter');
+    let counterStarted = false;
+    const counterIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !counterStarted) {
+          counterStarted = true;
+          const target = parseInt(counterEl.dataset.target, 10);
+          let current = 0;
+          const step = () => {
+            current += 1;
+            counterEl.textContent = current;
+            if (current < target) {
+              requestAnimationFrame(() => setTimeout(step, 150));
+            }
+          };
+          step();
+        }
+      });
+    }, { threshold: 0.5 });
+    if (counterEl) counterIO.observe(counterEl);
+
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+  </script>
+</body>
+</html>
